@@ -1,0 +1,52 @@
+
+{
+  "type": "page",
+  "title": "香港天氣程式",
+  "body": {
+    "type": "container",
+    "body": [
+      {
+        "title": "城市名稱",
+        "type": "form",
+        "name": "cityName",
+        "controls": [
+          {
+            "placeholder": "請輸入城市名稱",
+            "name": "city",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "api": "/api/weather?city=${cityName.city}",
+        "text": "查詢天氣",
+        "level": "primary",
+        "actionType": "ajax",
+        "target": "weatherResult",
+        "type": "button"
+      },
+      {
+        "text": "新增",
+        "level": "info",
+        "actionType": "add",
+        "target": "cityName",
+        "type": "button"
+      },
+      {
+        "text": "刪除",
+        "level": "danger",
+        "actionType": "delete",
+        "target": "cityName",
+        "type": "button"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "tpl",
+        "tpl": "<p>${{weatherResult.text}}</p><p>溫度：{{weatherResult.temperature}}</p><p>風向：{{weatherResult.wind}}</p>"
+      }
+    ]
+  }
+}
